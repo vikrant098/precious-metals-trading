@@ -1,0 +1,75 @@
+<template>
+    <lightning-card title="Precious Metals Trading Terminal">
+
+        <!-- Spot Price Header -->
+        <div class="slds-m-around_medium spot-box">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr>
+                        <th>Metal</th>
+                        <th>Bid</th>
+                        <th>Ask</th>
+                        <th>Change</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={formattedSpotPrices} for:item="rec">
+                        <tr key={rec.metal}>
+                            <td>{rec.metal}</td>
+                            <td>${rec.bid}</td>
+                            <td>${rec.ask}</td>
+                            <td>
+                                <span class={rec.changeClass}>
+                                    {rec.changeSymbol} {rec.changeAbs} ({rec.changePercentAbs}%)
+                                </span>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Product Sheet -->
+        <template if:true={products}>
+            <div class="slds-m-around_medium">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Buy Price</th>
+                            <th>Tier</th>
+                            <th>Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={products} for:item="group">
+                            <tr key={group.category}>
+                                <td colspan="5" class="slds-theme_info">{group.category}</td>
+                            </tr>
+
+                            <template for:each={group.subcategories} for:item="sub">
+                                <template if:true={sub.showSubcategory}>
+                                    <tr key={sub.subcategory}>
+                                        <td colspan="5" class="slds-theme_shade">{sub.subcategory}</td>
+                                    </tr>
+                                </template>
+
+                                <template for:each={sub.records} for:item="rec">
+                                    <tr key={rec.Id}>
+                                        <td class={rec.nameClass}>{rec.Name}</td>
+                                        <td class={rec.highlightClass}>{rec.ProductCode}</td>
+                                        <td class={rec.highlightClass}>${rec.Price__c}</td>
+                                        <td class={rec.highlightClass}>{rec.Tier__c}</td>
+                                        <td class={rec.highlightClass}>{rec.Available_Qty__c}</td>
+                                    </tr>
+                                </template>
+                            </template>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </template>
+
+    </lightning-card>
+</template>
