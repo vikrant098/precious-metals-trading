@@ -1,4 +1,4 @@
-![Trading Terminal](assets/ProductSheet.PNG )
+![Trading Terminal](assets/productSheet.PNG)
 
 ---
 # Real-Time Precious Metals Trading Product Sheet (Salesforce LWC)
