@@ -1,3 +1,6 @@
+![Trading Terminal](assets/ProductSheet.PNG )
+
+---
 # Real-Time Precious Metals Trading Product Sheet (Salesforce LWC)
 
 This repository demonstrates a real-world **precious metals trading platform** built on Salesforce using Lightning Web Components (LWC) and Apex.
@@ -31,3 +34,10 @@ All of this must update continuously during market hours.
 
 ## System Architecture
 
+- Live Gold, Silver, Platinum & Palladium spot prices
+- Tiered product sheets (Premium, Bullion, High Tier, Mid Tier)
+- Real-time bid / ask price updates
+- Visual indicators for tradable vs sold-out products
+- Automatic refresh during trading hours
+- External trading system integration
+- Built with Salesforce LWC + Apex
